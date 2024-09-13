@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pipolondo</string>
+    <string name="number_1">Number 1</string>
+    <string name="enter_your_first_number">Enter Your First Number</string>
+    <string name="number_2">Number 2</string>
+    <string name="enter_your_second_number">Enter Your Second Number</string>
+    <string name="peng_x">Peng (X)</string>
+    <string name="pembagian">Poro (/)</string>
+    <string name="result">Result</string>
+    <string name="pengurangan">Sudho (-)</string>
+    <string name="pertambahan">Nambah (-)</string>
+</resources>

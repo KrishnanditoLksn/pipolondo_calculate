@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/number1_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:lines="1"
+        android:text="@string/number_1"
+        tools:ignore="TextViewEdits">
+    </TextView>
+
+    <EditText
+        android:id="@+id/edit_text_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="1"
+        android:hint="@string/enter_your_first_number"
+        android:inputType="numberDecimal"
+        android:lines="1">
+    </EditText>
+
+    <TextView
+        android:id="@+id/number2_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/number_2">
+    </TextView>
+
+    <EditText
+        android:id="@+id/edit_text_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="1"
+        android:hint="@string/enter_your_second_number"
+        android:inputType="numberDecimal">
+    </EditText>
+
+    <!--Button 1 -->
+    <Button
+        android:id="@+id/btn_kali"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/peng_x"
+        android:textSize="16sp"
+        android:textStyle="bold">
+    </Button>
+    <!--Button 2 -->
+    <Button
+        android:id="@+id/btn_bagi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pembagian"
+        android:textSize="16sp"
+        android:textStyle="bold">
+    </Button>
+
+
+    <Button
+        android:id="@+id/btn_kurang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pengurangan"
+        android:textSize="16sp"
+        android:textStyle="bold">
+    </Button>
+
+    <Button
+        android:id="@+id/btn_tambah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pertambahan"
+        android:textSize="16sp"
+        android:textStyle="bold">
+    </Button>
+
+
+    <!--Result Field-->
+    <TextView
+        android:id="@+id/hasil_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text="@string/result"
+        android:textStyle="bold">
+    </TextView>
+</LinearLayout>
