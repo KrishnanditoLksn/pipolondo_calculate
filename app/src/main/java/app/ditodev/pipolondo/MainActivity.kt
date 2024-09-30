@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -47,7 +48,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnTambah.setOnClickListener(this)
         btnBagi.setOnClickListener(this)
         viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
-        displayResult()
+
+        val resultObserver: Observer<Int> = Observer {
+            result.text = it.toString()
+        }
+
+        viewModel.res.observe(this, resultObserver)
     }
 
     /*
@@ -62,22 +68,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             when (p0?.id) {
                 R.id.btn_kali -> {
                     viewModel.calculateKali(n1, n2)
-                    displayResult()
                 }
 
                 R.id.btn_bagi -> {
                     viewModel.calculateBagi(n1, n2)
-                    displayResult()
                 }
 
                 R.id.btn_kurang -> {
                     viewModel.calculateKurang(n1, n2)
-                    displayResult()
                 }
 
                 R.id.btn_tambah -> {
                     viewModel.calculateSum(n1, n2)
-                    displayResult()
                 }
             }
         } else if (n1.isEmpty()) {
@@ -87,7 +89,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun displayResult() {
-        result.text = viewModel.res.toString()
-    }
+//    private fun displayResult() {
+//        result.text = viewModel.res.toString()
+//    }
 }
