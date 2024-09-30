@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     /*
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var btnBagi: Button
     private lateinit var btnKali: Button
     private lateinit var result: TextView
+    private lateinit var viewModel: MainActivityViewModel
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,18 +46,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnKali.setOnClickListener(this)
         btnTambah.setOnClickListener(this)
         btnBagi.setOnClickListener(this)
-
-        //check if saved instance not null
-        if (savedInstanceState != null) {
-            val res = savedInstanceState.getString(StateResult.STATE_RESULT)
-            result.text = res
-        }
-    }
-
-    //override function save state when configuration has changed
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString(StateResult.STATE_RESULT, result.text.toString())
+        viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
+        displayResult()
     }
 
     /*
@@ -69,19 +61,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (n1.isNotEmpty() && n2.isNotEmpty()) {
             when (p0?.id) {
                 R.id.btn_kali -> {
-                    result.text = (n1.toDouble() * n2.toDouble()).toString()
+                    viewModel.calculateKali(n1, n2)
+                    displayResult()
                 }
 
                 R.id.btn_bagi -> {
-                    result.text = (n1.toDouble() / n2.toDouble()).toString()
+                    viewModel.calculateBagi(n1, n2)
+                    displayResult()
                 }
 
                 R.id.btn_kurang -> {
-                    result.text = (n1.toDouble() - n2.toDouble()).toString()
+                    viewModel.calculateKurang(n1, n2)
+                    displayResult()
                 }
 
                 R.id.btn_tambah -> {
-                    result.text = (n1.toDouble() + n2.toDouble()).toString()
+                    viewModel.calculateSum(n1, n2)
+                    displayResult()
                 }
             }
         } else if (n1.isEmpty()) {
@@ -89,5 +85,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else if (n2.isEmpty()) {
             editNumber2.error = "Gaboleh Kosong"
         }
+    }
+
+    private fun displayResult() {
+        result.text = viewModel.res.toString()
     }
 }
