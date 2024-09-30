@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -8,89 +9,151 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/number1_title"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:lines="1"
-        android:text="@string/number_1"
-        tools:ignore="TextViewEdits">
-    </TextView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/edit_text_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints="1"
-        android:hint="@string/enter_your_first_number"
-        android:inputType="numberDecimal"
-        android:lines="1">
-    </EditText>
-
-    <TextView
-        android:id="@+id/number2_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/number_2">
-    </TextView>
-
-    <EditText
-        android:id="@+id/edit_text_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints="1"
-        android:hint="@string/enter_your_second_number"
-        android:inputType="numberDecimal">
-    </EditText>
-
-    <!--Button 1 -->
-    <Button
-        android:id="@+id/btn_kali"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/peng_x"
-        android:textSize="16sp"
-        android:textStyle="bold">
-    </Button>
-    <!--Button 2 -->
-    <Button
-        android:id="@+id/btn_bagi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pembagian"
-        android:textSize="16sp"
-        android:textStyle="bold">
-    </Button>
+        <!--Button 1 -->
+        <!--Button 2 -->
 
 
-    <Button
-        android:id="@+id/btn_kurang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pengurangan"
-        android:textSize="16sp"
-        android:textStyle="bold">
-    </Button>
+        <!--Result Field-->
 
-    <Button
-        android:id="@+id/btn_tambah"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pertambahan"
-        android:textSize="16sp"
-        android:textStyle="bold">
-    </Button>
+        <TextView
+            android:id="@+id/number1_title"
+            android:layout_width="379dp"
+            android:layout_height="18dp"
+            android:layout_marginBottom="5dp"
+            android:inputType="numberDecimal"
+            android:lines="1"
+            android:text="@string/number_1"
+            app:layout_constraintBottom_toTopOf="@+id/edit_text_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextViewEdits">
+        </TextView>
 
+        <EditText
+            android:id="@+id/edit_text_1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="20dp"
+            android:autofillHints="1"
+            android:hint="@string/enter_your_first_number"
+            android:inputType="numberDecimal"
+            android:lines="1"
+            app:layout_constraintBottom_toTopOf="@+id/number2_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </EditText>
 
-    <!--Result Field-->
-    <TextView
-        android:id="@+id/hasil_field"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:text="@string/result"
-        android:textStyle="bold">
-    </TextView>
-</LinearLayout>
+        <TextView
+            android:id="@+id/number2_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="21dp"
+            android:text="@string/number_2"
+            app:layout_constraintBottom_toTopOf="@+id/edit_text_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_1">
+        </TextView>
+
+        <EditText
+            android:id="@+id/edit_text_2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="8dp"
+            android:autofillHints="1"
+            android:hint="@string/enter_your_second_number"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toTopOf="@+id/btn_kali"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/number2_title">
+        </EditText>
+
+        <Button
+            android:id="@+id/btn_kali"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/peng_x"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_2">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_bagi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/pembagian"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_kali">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_kurang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:text="@string/pengurangan"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/hasil_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_tambah">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_tambah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pertambahan"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_bagi">
+        </Button>
+
+        <TextView
+            android:id="@+id/hasil_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:gravity="center"
+            android:text="@string/result"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_kurang">
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
